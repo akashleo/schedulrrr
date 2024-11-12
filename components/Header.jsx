@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { PenBox } from "lucide-react";
 import { SignedOut, SignedIn, UserButton, SignInButton } from "@clerk/nextjs";
+import UserMenu from "./user-button"
 
 const Header = () => {
   return (
@@ -32,7 +33,7 @@ const Header = () => {
           </SignInButton>
         </SignedOut>
         <SignedIn className="inline-block">
-          <UserButton />
+          <UserMenu />
         </SignedIn>
       </div>
     </nav>
