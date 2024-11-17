@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, Calendar, Clock, LinkIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import TestimonialCarousel from "@/components/testimonials";
 
 export default function Home() {
   const features = [
@@ -68,7 +69,9 @@ export default function Home() {
         </div>
       </div>
       <div className="mb-24">
-        <h1 className="text-3xl font-bold text-center mb-12 text-blue-600">Key Features</h1>
+        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
+          Key Features
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             return (
@@ -87,6 +90,39 @@ export default function Home() {
               </Card>
             );
           })}
+        </div>
+      </div>
+      <div className="mb-24">
+        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
+          What our users say
+        </h2>
+        <TestimonialCarousel />
+      </div>
+
+      <div className="mb-24">
+        <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
+          How it works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4">
+          {howItWorks.map((step, index) => {
+            return (
+              <div key={index} className="text-center">
+                <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="font-bold text-blue-600 text xl">
+                    {index+1}
+                  </span>
+                </div>
+                <h3>{step.step}</h3>
+                <p className="text-center text-gray-600">{step.description}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        <div>
+        <h2> Ready to simplify your scheduling
+        </h2>
+        <p> Join thousands of coders in scheduling their time</p>
         </div>
       </div>
     </main>
