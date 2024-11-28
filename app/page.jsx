@@ -109,23 +109,26 @@ export default function Home() {
               <div key={index} className="text-center">
                 <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <span className="font-bold text-blue-600 text xl">
-                    {index+1}
+                    {index + 1}
                   </span>
                 </div>
-                <h3>{step.step}</h3>
+                <h3 className="font-semibold text-lg mb-2">{step.step}</h3>
                 <p className="text-center text-gray-600">{step.description}</p>
               </div>
             );
           })}
         </div>
 
-        <div>
-        <h2> Ready to simplify your scheduling
-        </h2>
-        <p> Join thousands of coders in scheduling their time</p>
+        <div className="bg-blue-600 text-white rounded-lg p-8 text-center mt-3">
+          <h2> Ready to simplify your scheduling</h2>
+          <p> Join thousands of coders in scheduling their time</p>
+          <div className="mt-3">
+          <Link href="/dashboard">
+            <Button size="lg" variant="secondary" className="text-blue-600">Start for Free <ArrowRight className="ml-2 h-5 w-5"/> </Button>
+          </Link>
+          </div>
         </div>
       </div>
     </main>
   );
 }
-re
