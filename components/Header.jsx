@@ -5,16 +5,18 @@ import { Button } from "./ui/button";
 import { PenBox } from "lucide-react";
 import { SignedOut, SignedIn, UserButton, SignInButton } from "@clerk/nextjs";
 import UserMenu from "./user-button"
+import {checkUser} from "@/lib/checkUser"
 
 
-const Header = () => {
+const Header = async () => {
+  await checkUser();
   return (
     <nav className="mx-auto px-4 py-2 flex justify-between">
       <div>
       <Link href="/home" className="flex items-center">
         <Image
           src="/logo.png"
-          width="150"
+          width="150" 
           height="60"
           alt="Schedulerr logo"
           className="h-16 w-auto"
