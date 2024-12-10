@@ -12,9 +12,13 @@ const Dashboard = () => {
   const [isLoaded, user] = useUser();
   console.log(user);
 
-useForm({
+const {register, handleSubmit, setValue} = useForm({
     resolver: zodResolver(usernameSchema)
 })
+
+useEffect(()=>{
+    setValue("username", user?.username)
+},[isLoaded])
     
 
 
@@ -30,11 +34,11 @@ useForm({
           <CardTitle>Your Unique Link</CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4 "> 
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 "> 
             <div>
               <div className="flex items-center gap-2">
                 <span>{window?.location.origin}/</span>
-                <Input placeholder="username"/>
+                <Input {...register("username")} placeholder="username"/>
               </div>
             </div>
             <Button type="submit">Update Username</Button>
