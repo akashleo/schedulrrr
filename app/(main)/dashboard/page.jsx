@@ -1,15 +1,16 @@
 "use client";
-
+import {useEffect} from "react"
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardTitle, Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useUser } from "@clerk/nextjs";
 import {useForm} from "react-hook-form"
 import {zodResolver } from "@hookform/resolvers/zod"
+import {usernameSchema} from "@/app/(main)/lib/validators"
 
 
 const Dashboard = () => {
-  const [isLoaded, user] = useUser();
+  const {isLoaded, user} = useUser();
   console.log(user);
 
 const {register, handleSubmit, setValue} = useForm({
@@ -40,6 +41,7 @@ useEffect(()=>{
                 <span>{window?.location.origin}/</span>
                 <Input {...register("username")} placeholder="username"/>
               </div>
+              {errors.username && <p className="text-red text-sm mt-1">{errors.username.message}</p>}
             </div>
             <Button type="submit">Update Username</Button>
           </form>
